@@ -1,0 +1,40 @@
+title: STAT 850 Homework Formats
+author: Longhai Li
+version: 1.0.0
+quarto-required: ">=1.4.0"
+contributes:
+  formats:
+    html:
+      theme: cosmo
+      self-contained: true
+      toc: true
+      toc-location: right
+      format-links: false
+      page-layout: full
+      code-fold: true
+      number-sections: false
+      df-print: paged
+      highlight-style: tango
+      css:
+        - html/homework.css
+      execute:
+        fig-format: png
+      knitr:
+        opts_chunk:
+          dev: "ragg_png"
+    typst:
+      toc: false
+      number-sections: false
+      mainfont: "Times New Roman"
+      shift-heading-level-by: -1
+      margin:
+        top: 30mm
+        left: 20mm
+      include-in-header: typst/homework.typ
+      filters:
+        - typst/homework.lua
+      execute:
+        fig-format: png
+      knitr:
+        opts_chunk:
+          dev: "ragg_png"

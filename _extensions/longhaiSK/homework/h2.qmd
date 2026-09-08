@@ -1,0 +1,40 @@
+```{r}
+#| label: h2 numbering
+#| echo: false
+#| include: false
+
+# 1. Initialize Global State
+
+# We use a specific environment to keep things clean
+q_state <- new.env()
+q_state$count <- 1
+q_state$labels <- list()
+
+# 2. The Header Function with Optional Label
+
+# Usage: `r h2()` or `r h2("my_label")`
+h2 <- function(label = NULL) {
+  val <- q_state$count
+
+  # If a label is provided, store the current number in the list
+  if (!is.null(label)) {
+    q_state$labels[[label]] <- val
+  }
+
+  # Increment for next time
+  q_state$count <- q_state$count + 1
+
+  return(val)
+}
+
+# 3. The Reference Function
+
+# Usage: `r ref("my_label")`
+ref <- function(label) {
+  if (is.null(q_state$labels[[label]])) {
+    return("??") # Visual warning if label is missing or typo
+  }
+  return(q_state$labels[[label]])
+}
+
+```
