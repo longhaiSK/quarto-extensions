@@ -1,8 +1,9 @@
 -- Select and number the questions of a question bank.
 --
--- A question is a header whose text starts with "Question"; it runs until the
--- next header of the same or a higher level. Its tags are in the header's
--- exam attribute, separated by commas and/or spaces:
+-- A question is a header whose text starts with "Question", at the level of the
+-- first such header; it runs until the next header of the same or a higher
+-- level, so lower-level headers such as "### Question 2.1" are parts of it.
+-- Its tags are in the header's exam attribute, separated by commas and/or spaces:
 --
 --   ## Question: Computing Bernoulli NLL at Extreme Log-Odds {exam="test final2026"}
 --
@@ -52,7 +53,7 @@ function Pandoc(doc)
   local n = 0
 
   for _, b in ipairs(doc.blocks) do
-    if is_question(b) then
+    if is_question(b) and b.level == qlevel then
       keep = not select or split_tags(b.attributes.exam or '')[exam] == true
       if keep then
         n = n + 1
