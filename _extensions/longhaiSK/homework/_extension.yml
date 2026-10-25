@@ -17,12 +17,16 @@ contributes:
       highlight-style: tango
       css:
         - html/homework.css
+      filters:
+        - questions.lua
+        - solutions.lua
       execute:
         fig-format: png
       knitr:
         opts_chunk:
           dev: "ragg_png"
     typst:
+      keep-typ: true          # keep the intermediate .typ file after every render
       toc: false
       number-sections: false
       mainfont: "Times New Roman"
@@ -32,6 +36,8 @@ contributes:
         left: 20mm
       include-in-header: typst/homework.typ
       filters:
+        - questions.lua
+        - solutions.lua
         - typst/homework.lua
       execute:
         fig-format: png
