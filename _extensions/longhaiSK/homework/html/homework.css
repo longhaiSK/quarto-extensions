@@ -87,6 +87,13 @@ ol {
   padding-left: 2.5em;
 }
 
+/* Number decimal lists (1), (2), ... in bold; lists written with letters or
+   roman numerals keep their own style */
+ol[type="1"] > li::marker {
+  content: "(" counter(list-item) ")  ";
+  font-weight: bold;
+}
+
 p.small {
   font-size: 0.9em;
 }

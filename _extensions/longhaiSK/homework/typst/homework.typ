@@ -55,10 +55,10 @@
 
 /* --- List & Enum Settings --- */
 /* Increases the vertical gap between separate list items, and indents the
-   markers by about four letters (2em) from the left margin (Typst's default
-   is no indent) */
-#set list(spacing: 1.2em, indent: 2em)
-#set enum(spacing: 1.2em, indent: 2em)
+   markers by 1.5em from the left margin (Typst's default is no indent).
+   Numbered items are labelled with a bold (1), (2), ... */
+#set list(spacing: 1.2em, indent: 1.5em)
+#set enum(spacing: 1.2em, indent: 1.5em, numbering: n => strong[(#n)])
 
 /* Increases the internal line spacing for text/equations wrapped within the same item */
 #show list: set par(leading: 1em)
