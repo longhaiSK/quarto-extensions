@@ -1,0 +1,28 @@
+/* =========================================
+   LANDING PAGE (book's root index.qmd)
+   Hides the navigation sidebar and centers the content.
+   Added by deps.lua; see the landing-page option there.
+   ========================================= */
+#quarto-sidebar,
+#quarto-sidebar-glass,
+#quarto-margin-sidebar,
+#sidebar-resizer,
+.quarto-btn-toggle {
+  display: none !important;
+}
+
+/* Drop the grid and its reserved sidebar/margin columns.  The extra
+   specificity beats bookstyles.css's body:not(.sidebar-closed) #quarto-content
+   offset. */
+html body #quarto-content.quarto-container {
+  display: block !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+}
+
+#quarto-document-content {
+  max-width: 900px;
+  margin: 0 auto !important;
+  padding: 0 1rem;
+}
