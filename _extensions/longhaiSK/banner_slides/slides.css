@@ -34,6 +34,20 @@
   font-size: calc(1.3em / 0.9) !important;
 }
 
+/* .tiny: body text at 0.7em; headings compensated to keep their normal size. */
+.reveal .slides section.tiny {
+  font-size: 0.7em !important;
+}
+.reveal .slides section.tiny h1 {
+  font-size: calc(2.5em / 0.7) !important;
+}
+.reveal .slides section.tiny h2 {
+  font-size: calc(1.6em / 0.7) !important;
+}
+.reveal .slides section.tiny h3 {
+  font-size: calc(1.3em / 0.7) !important;
+}
+
 /* 3. Custom Rules */
 
 /* Deck title slide subtitle */
@@ -52,6 +66,17 @@
 }
 .reveal h1 {
   color: #032eee !important;
+}
+
+/* Inline code in headings takes the heading colour (legible on the blue banner) */
+.reveal h1 code,
+.reveal h2 code,
+.reveal h3 code,
+.reveal h4 code,
+.reveal h5 code,
+.reveal h6 code {
+  color: inherit !important;
+  background-color: transparent !important;
 }
 
 /* Center standalone slide images and fill the available width. */
@@ -207,4 +232,14 @@ body.hide-debug .reveal .slides section.level2:not(#title-slide):not(.quarto-tit
 }
 body.hide-debug .reveal .slides section.sub > h2 {
   border-bottom: none;
+}
+
+/* Stroke eraser: crosshair over the plugin's drawing canvases while the tool is on */
+body.stroke-eraser-on canvas[data-chalkboard] {
+  cursor: crosshair !important;
+}
+
+/* Chalkboard canvas: plain white (whiteboard theme gives pens like the on-screen pencil) */
+#chalkboard {
+  background: #fff !important;
 }
